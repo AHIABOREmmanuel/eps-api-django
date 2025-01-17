@@ -23,15 +23,18 @@ from api.views import*
 
 
 router = routers.DefaultRouter()
-router.register('Moto', MotoViewSet)
+router.register('Vehicule', VehiculeViewSet)
+router.register('Piece', PieceViewSet)
+router.register('Engin', EnginViewSet)
 router.register('Saisie', SaisieViewSet)
 router.register('Papiers', PapiersViewSet)
 router.register('Commissariat', CommissariatViewSet)
-router.register('Agent_Police', Agent_PoliceViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('backend/', include('backend.urls')),
     
 ]
 

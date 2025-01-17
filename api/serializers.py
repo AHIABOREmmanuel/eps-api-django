@@ -2,9 +2,21 @@ from rest_framework import serializers
 from api.models import *
 
 
-class MotoSerializer(serializers.HyperlinkedModelSerializer):
+class VehiculeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Moto
+        model = Vehicule
+        fields = '__all__'
+
+
+class PieceSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Piece
+        fields = '__all__'
+
+
+class EnginSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Engin
         fields = '__all__'
        
 
@@ -27,7 +39,3 @@ class CommissariatSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
 
 
-class Agent_PoliceSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Agent_Police
-        fields = '__all__'

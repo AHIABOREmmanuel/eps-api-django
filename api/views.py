@@ -3,14 +3,29 @@ from rest_framework import viewsets
 from api.models import *
 from backend.models import *
 from api.serializers import *
+from backend.models import*
+import urllib.parse
 
 # Create your views here.
 
-class  MotoViewSet(viewsets.ModelViewSet):
 
-    queryset = Moto.objects.all()
-    serializer_class = MotoSerializer
 
+class VehiculeViewSet(viewsets.ModelViewSet):
+
+    queryset = Vehicule.objects.all()
+    serializer_class = VehiculeSerializer
+
+
+class PieceViewSet(viewsets.ModelViewSet):
+
+    queryset = Piece.objects.all()
+    serializer_class = PieceSerializer
+
+
+class EnginViewSet(viewsets.ModelViewSet):
+
+    queryset = Engin.objects.all()
+    serializer_class = EnginSerializer
 
 
 class  SaisieViewSet(viewsets.ModelViewSet):
@@ -30,9 +45,14 @@ class  CommissariatViewSet(viewsets.ModelViewSet):
 
     queryset = Commissariat.objects.all()
     serializer_class = CommissariatSerializer
-    
+     
 
-class  Agent_PoliceViewSet(viewsets.ModelViewSet):
 
-    queryset = Agent_Police.objects.all()
-    serializer_class = Agent_PoliceSerializer 
+def get_queryset(self):
+    queryset = Engin.objects.all()
+    immatriculation = self.request.query_params.get('immatriculation', None)
+    if immatriculation:
+        immatriculation = urllib.parse.unquote(immatriculation)  
+        queryset = queryset.filter(immatriculation__icontains=immatriculation)
+    return queryset
+

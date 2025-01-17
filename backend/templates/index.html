@@ -1,0 +1,93 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.cinetpay.com/seamless/main.js"></script>
+    <style>
+        .sdk {
+            display: block;
+            position: absolute;
+            background-position: center;
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        function checkout() {
+            CinetPay.setConfig({
+                apikey: '146081047466c58ccbaf3673.55940191',//   YOUR APIKEY
+                site_id: '105885415',//YOUR_SITE_ID
+                notify_url: 'http://mondomaine.com/notify/',
+                mode: 'PRODUCTION'
+            });
+            CinetPay.getCheckout({
+                transaction_id: Math.floor(Math.random() * 100000000).toString(), // YOUR TRANSACTION ID
+                amount: 500,
+                currency: 'XOF',
+                channels: 'ALL',
+                description: 'Test de paiement',   
+                 //Fournir ces variables pour le paiements par carte bancaire
+                customer_name:"Joe",//Le nom du client
+                customer_surname:"Down",//Le prenom du client
+                customer_email: "down@test.com",//l'email du client
+                customer_phone_number: "088767611",//l'email du client
+                customer_address : "BP 0024",//addresse du client
+                customer_city: "Antananarivo",// La ville du client
+                customer_country : "CM",// le code ISO du pays
+                customer_state : "CM",// le code ISO l'état
+                customer_zip_code : "06510", // code postal
+
+            });
+            CinetPay.waitResponse(function(data) {
+                if (data.status == "REFUSED") {
+                    if (alert("Votre paiement a échoué")) {
+                        window.location.reload();
+                    }
+                } else if (data.status == "ACCEPTED") {
+                    if (alert("Votre paiement a été effectué avec succès")) {
+                        window.location.reload();
+                    }
+                }
+            });
+            CinetPay.onError(function(data) {
+                console.log(data);
+            });
+        }
+    </script>
+</head>
+<body>
+    </head>
+    <body>
+        <div class="sdk">
+            <h1>SDK SEAMLESS</h1>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    </body>
+</html>   -->
+
+<!--
+Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+-->
+<!--
+Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>Intégrer Feda Checkout à mon site</title>
+<script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+</head>
+<body>
+<button id="pay-btn">Payer 100 FCFA</button>
+<script type="text/javascript">
+  FedaPay.init('#pay-btn', { public_key: 'pk_live_7U7iKADcteU6R4Ao3oVKyY6e' });
+</script>
+</body>
+</html>
+
+   
