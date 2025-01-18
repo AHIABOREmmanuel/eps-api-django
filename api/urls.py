@@ -2,7 +2,6 @@ from django.urls import include, path
 from django.contrib import admin
 from rest_framework import routers
 from api.views import *
-from . import views
 
 router = routers.DefaultRouter()
 router.register('Vehicule', VehiculeViewSet)
@@ -14,11 +13,7 @@ router.register('Commissariat', CommissariatViewSet)
 
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    
-    
- 
+    path('api/', include(router.urls)),  
 ]

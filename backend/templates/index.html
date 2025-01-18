@@ -73,21 +73,41 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 <!--
 Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
 -->
+<!--
+Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+-->
 
+<!--
+Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+-->
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<title>Intégrer Feda Checkout à mon site</title>
-<script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Intégrer Feda Checkout à mon site</title>
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
 </head>
 <body>
-<button id="pay-btn">Payer 100 FCFA</button>
-<script type="text/javascript">
-  FedaPay.init('#pay-btn', { public_key: 'pk_live_7U7iKADcteU6R4Ao3oVKyY6e' });
-</script>
+  <div id="embed" style="width: 500px; height: 420px"></div>
+
+  <script type="text/javascript">
+      FedaPay.init({
+        public_key: 'pk_live_7U7iKADcteU6R4Ao3oVKyY6e',
+        transaction: {
+          amount: 100,
+          description: 'Acheter mon produit'
+        },
+        customer: {
+          email: 'johndoe@gmail.com',
+          lastname: 'Doe',
+        },
+        container: '#embed'
+     });
+  </script>
 </body>
 </html>
+
+   
 
    

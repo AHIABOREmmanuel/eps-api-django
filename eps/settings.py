@@ -34,6 +34,18 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",  
 ]
 
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+    'DOC_EXPANSION': 'none',
+    'LOGIN_URL': '/admin/login/',
+    'LOGOUT_URL': '/admin/logout/',
+    'USE_SESSION_AUTH': True,
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +59,8 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'corsheaders',
+    'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
